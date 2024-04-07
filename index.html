@@ -104,6 +104,12 @@
         var context2 = canvas2.getContext("2d");
         
         const imgData = context.getImageData(0,0,600,500)
+        const data = imageData.data;
+        for (let i= 0; i < data.length; i += 4) {
+             data[i] = 0
+             data[i + 1] = 0
+             data[i + 2] = 255
+        
         context2.putImageData(imgData, 0, 0)
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
