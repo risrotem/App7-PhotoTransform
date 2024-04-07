@@ -104,7 +104,7 @@
         var context2 = canvas2.getContext("2d");
         
         const imgData = context.getImageData(0,0,600,500)
-        const data = imageData.data;
+        const data = imgData.data;
         for (let i= 0; i < data.length; i += 4) {
              data[i] = 0
              data[i + 1] = 0
