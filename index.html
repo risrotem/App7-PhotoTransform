@@ -100,17 +100,17 @@
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     
-        var canvas2 = document.getElementById('dataCanvas');
+        var canvas2 = document.getElementById('dataCanvas'); 
         var context2 = canvas2.getContext("2d");
-        
-        const imgData = context.getImageData(0,0,600,500)
-        const data = imgData.data;
+        //the two variables call the second canvas defined in the HTML and allow it to be edited//
+        const imgData = context.getImageData(0,0,600,500) //copies the entire image that has been placed on the first canvas//
+        const data = imgData.data; //intializes a variable that holds the pixel data from the first canvas image//
         for (let i= 0; i < data.length; i += 4) {
-             data[i] = 255 - data[i]
-             data[i + 1] = 255 - data[i + 1]
-             data[i + 2] = 255
+             data[i] = 255 - data[i] //edits the red pixels to not show up in the second image//
+             data[i + 1] = 255 - data[i + 1] //edits the green pixels to not show up in the second image//
+             data[i + 2] = 255 //edits the blue pixels to show up in the maximum intensity//
         }
-        context2.putImageData(imgData, 0, 0)
+        context2.putImageData(imgData, 0, 0) //takes the edited pixel data from the first canvas and puts it on the second canvas so that the image only shows blue pixels//
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
@@ -146,21 +146,21 @@
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> <!--creates the first canvas-->
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-        context.fillText("Original image will go here", 10, 20);
+        var canvas = document.getElementById('myCanvas'); //initializes the canvas variable//
+        var context = canvas.getContext("2d"); //initializes the context of the canvas//
+        context.font = '20pt Calibri'; //indicates what the text will look like//
+        context.fillStyle = "black"; //indicates the color of the text//
+        context.fillText("Original image will go here", 10, 20); //this message shows up on the first canvas before an image is selected//
       </script>
-      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> <!--creates the second canvas-->
       <script>
-        var canvas2 = document.getElementById('dataCanvas');
-        var context2 = canvas2.getContext("2d");
-        context2.font = '20pt Calibri';
-        context2.fillStyle = "black";
-        context2.fillText("Edited image will go here", 10, 20);
+        var canvas2 = document.getElementById('dataCanvas'); //initializes the second canvas variable//
+        var context2 = canvas2.getContext("2d");  //initializes the context of the second canvas//
+        context2.font = '20pt Calibri'; //indicates what the text will look like//
+        context2.fillStyle = "black"; //indicates the color of the text//
+        context2.fillText("Edited image will go here", 10, 20); //this message shows up on the first canvas before an image is selected//
       </script>
 
     </div><!-- /content -->
